@@ -8,9 +8,9 @@ int main() {
 
     Dummy bob;
     Fwoosh* fwoosh = new Fwoosh();
-    
-    richard.learnSpell(fwoosh);
 
+    richard.learnSpell(fwoosh);
+    
     richard.introduce();
     richard.launchSpell("Fwoosh", bob);
 
@@ -19,5 +19,5 @@ int main() {
 
     delete fwoosh;
 
-    return (0);
+    return 0;
 }
