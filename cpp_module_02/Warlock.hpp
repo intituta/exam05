@@ -3,6 +3,7 @@
 #include <iostream>
 #include "ASpell.hpp"
 #include "ATarget.hpp"
+#include "SpellBook.hpp"
 #include <map>
 
 class Warlock {
@@ -14,6 +15,7 @@ class Warlock {
         Warlock(Warlock const& warlock);
         Warlock& operator=(Warlock const& warlock);
         std::map<std::string, ASpell* > mapSpell;
+        SpellBook book;
     public:
         Warlock(std::string const& name, std::string const& title);
         ~Warlock();
@@ -24,8 +26,8 @@ class Warlock {
         void setTitle(std::string const& title);
 
         void learnSpell(ASpell* spell);
-        void forgetSpell(std::string const& name);
-        void launchSpell(std::string const& spellName, ATarget const& target);
+        void forgetSpell(std::string name);
+        void launchSpell(std::string spellName, ATarget const& target);
 
         void introduce() const;
 };

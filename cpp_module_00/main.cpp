@@ -1,7 +1,7 @@
 #include "Warlock.hpp"
 
 int main() {
-    
+
     Warlock const richard("Richard", "Mistress of Magma");
     std::cout << richard.getName() << " - " << richard.getTitle() << std::endl;
     richard.introduce();

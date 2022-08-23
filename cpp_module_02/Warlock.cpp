@@ -17,10 +17,10 @@ Warlock::~Warlock() {
 
     while(begin != end) {
         
-        //delete begin->second;
+        delete begin->second;
         ++begin;
     }
-    //mapSpell.clear();
+    mapSpell.clear();
 }
 
 std::string const& Warlock::getName() const {
@@ -44,47 +44,23 @@ void Warlock::introduce() const {
 }
 
 void Warlock::learnSpell(ASpell* spell) {
-
-    if (spell) {
     
-        mapSpell.insert(std::pair<std::string, ASpell* >(spell->getName(), spell->clone()));
-    }
+    book.learnSpell(spell);
 }
 
-void Warlock::forgetSpell(std::string const& spell) {
+void Warlock::forgetSpell(std::string spell) {
 
-    std::map<std::string, ASpell* >::iterator iterator = mapSpell.find(spell);
-
-    if (iterator != mapSpell.end()) {
-        
-        delete iterator->second;
-    }
-    mapSpell.erase(spell);
+    book.forgetSpell(spell);
 }
-
-void Warlock::launchSpell(std::string const& spellName, ATarget const& target) {
-
-    ASpell* spell = mapSpell[spellName];
-    if (spell) {
-        
-        spell->launch(target);
+void Warlock::launchSpell(std::string spellName, ATarget const& target) {
+    
+    ATarget const* test = 0;
+    if (test == &target) {
+    
+        return;
+    }
+    ASpell* temp = book.createSpell(spellName);
+    if (temp) {
+        temp->launch(target);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

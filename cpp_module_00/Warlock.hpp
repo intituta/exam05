@@ -3,18 +3,14 @@
 #include <iostream>
 
 class Warlock {
-    
-    private:
 
+    private:
         std::string name;
         std::string title;
-
         Warlock();
         Warlock(Warlock const& warlock);
         Warlock& operator=(Warlock const& warlock);
-
     public:
-        
         Warlock(std::string const& name, std::string const& title);
         ~Warlock();
 
